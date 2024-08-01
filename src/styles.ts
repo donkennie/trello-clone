@@ -19,12 +19,12 @@ export const ColumnContainer = styled.div `
     flex-grow: 0;
 `
 
-export const ColumnTitle = `
+export const ColumnTitle = styled.div`
     padding: 6px 16px 12px;
     font-weight: bold;
 `
 
-export const CardContainer = `
+export const CardContainer = styled.div`
     background-color: #fff;
     cursor: pointer;    
     margin-bottom: 0.5rem;
