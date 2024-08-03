@@ -8,7 +8,10 @@ type ColumnProps = {
     id: string
 }
 
-export const Column = ({text}: ColumnProps) =>{
+export const Column = ({text, id}: ColumnProps) =>{
+    const { getTasksByListId } = useAppState()
+
+    const tasks = getTasksByListId(id)
     return (
         <ColumnContainer>
             <ColumnTitle>{text}</ColumnTitle>
