@@ -1,4 +1,5 @@
 import { createContext, useContext, FC } from "react"
+import { App } from "../App"
 
 type Task = {
     id: string
@@ -37,7 +38,7 @@ const appData: AppState = {
 
 type AppStateContextProps = {
     lists: List[]
-    getTaskByListId(id: string): Task[]
+    getTasksByListId(id: string): Task[]
 }
 
 const AppStateContext = createContext<AppStateContextProps>(
@@ -47,13 +48,17 @@ const AppStateContext = createContext<AppStateContextProps>(
 export const AppStateProvider: FC = (children) => {
     const {lists} = appData
 
-    const getTaskByListId = (id: string) => {
+    const getTasksByListId = (id: string) => {
         return lists.find((list) => list.id === id)?.tasks || []
     }
 
     return (
-        <AppStateContext.Provider value = {{lists, getTaskByListId}}>
+        <AppStateContext.Provider value = {{lists, getTasksByListId}}>
             (children)
         </AppStateContext.Provider>
     )
+}
+
+export const useAppState = () => {
+    return useContext(AppStateContext)
 }

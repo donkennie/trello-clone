@@ -9,7 +9,7 @@ type ColumnProps = {
 }
 
 export const Column = ({text, id}: ColumnProps) =>{
-    const { getTasksByListId } = useAppState()
+    const { getTasksByListId  } = useAppState()
 
     const tasks = getTasksByListId(id)
     return (
