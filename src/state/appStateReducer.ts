@@ -2,12 +2,12 @@ import { Action } from "./actions"
 import { nanoid } from "nanoid"
 import { findItemIndexById } from "../utils/arrayUtils"
 
-type Task = {
+export type Task = {
     id: string
     text: string
 }
 
-type List = {
+export type List = {
     id: string
     text: string
     tasks: Task[]
